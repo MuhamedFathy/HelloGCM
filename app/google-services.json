@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "269500506938",
+    "project_id": "hellogcm-d113f"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:269500506938:android:68a34b42c9590f62",
+        "android_client_info": {
+          "package_name": "com.hendiware.hellogcm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtX7Q-R8F-Wxe5RlNJVa7jzJ0AL0TXDyA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
