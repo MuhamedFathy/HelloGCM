@@ -28,6 +28,7 @@ public class RegistrationService extends IntentService {
     SharedPreferences preferences;
     SharedPreferences.Editor prefEditor;
 
+
     public RegistrationService() {
         super("RegistrationService");
     }
@@ -35,14 +36,22 @@ public class RegistrationService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
+        Log.e("Registration Service :", "Hello .....");
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         prefEditor = preferences.edit();
 
         InstanceID instanceID = InstanceID.getInstance(this);
+        Log.e("Registration Service :", "try get token  .....");
+
         try {
-            String token = instanceID.getToken("269500506938", GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
+            String token = instanceID.getToken(getString(R.string.google_app_id), GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
+            Log.e("Registration Service :", "get Token is " + token);
+            Log.i("Registration Service :", "GCM Registration Token: " + token);
+
             if (!preferences.getBoolean("token_sent", false))
                 sendTokenToServer(token);
+            else
+                this.stopSelf();
         } catch (IOException e) {
             e.printStackTrace();
             Log.e("Registration Service", "Error :get Token Failed !");
